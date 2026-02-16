@@ -52,12 +52,64 @@ public class Class1
         // Create a scene to contain 3D objects
         Scene scene = new Scene();
 
+        int cubeSize = 100;
+        double vertexDiameter = 0.5;
+
         // The static ObjectFactory class can be used to create "complex" 3D objects, such as a cube.
         // These are returned as a list of triangles that can be added to the scene.
-        scene.AddRange(ObjectFactory.CreateCube(new Point3D(0, 0, 0), 100,
+        scene.AddRange(ObjectFactory.CreateCube(new Point3D(0, 0, 0), cubeSize,
                                                 new IMaterial[] {
                                                     new PhongMaterial(Colour.FromRgb(0, 158, 115))
                                                 }));
+
+        scene.AddElement(new Point3DElement(new Point3D(-cubeSize / 2, cubeSize / 2, cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(-cubeSize / 2, -cubeSize / 2, cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(-cubeSize / 2, cubeSize / 2, -cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(-cubeSize / 2, -cubeSize / 2, -cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+
+        scene.AddElement(new Point3DElement(new Point3D(cubeSize / 2, -cubeSize / 2, cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(cubeSize / 2, -cubeSize / 2, -cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(cubeSize / 2, cubeSize / 2, -cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
+
+        scene.AddElement(new Point3DElement(new Point3D(cubeSize / 2, cubeSize / 2, cubeSize / 2))
+        {
+            Diameter = vertexDiameter,
+            Colour = Colours.Red
+        });
 
         // The light will be used to illuminate the object(s) in the scene and make them actually visible.
         ParallelLightSource light = new ParallelLightSource(0.5, new NormalizedVector3D(1, 2, 3));
